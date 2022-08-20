@@ -1,0 +1,90 @@
+﻿<dx:ThemedWindow
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+        xmlns:dxre="http://schemas.devexpress.com/winfx/2008/xaml/richedit" x:Class="DXApplication2.MainWindow"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        Title="Nástroj na generování tříd entit z databáze" Height="560" Width="710" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid>
+            <TabControl>
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Tabulky"></TextBlock>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Grid>
+                        <StackPanel Margin="20" x:Name="stackpanel1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="300">
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Pohledy"></TextBlock>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Grid>
+                        <StackPanel Margin="20" x:Name="stackpanel2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="300">
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Změny"></TextBlock>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <StackPanel Grid.Column="1" Margin="20" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Label FontWeight="Bold" Content="Přehled změn"/>
+                        <RichTextBox MinWidth="500" Height="388">
+                            <FlowDocument>
+                                <Paragraph>
+                                    <Bold>1.</Bold> V případě kdy tabulka má změněné pole než v souboru.
+                                </Paragraph>
+                                <Paragraph>
+                                    <Bold>2.</Bold> V případě kdy pole má jiný datový typ než v souboru.
+                                </Paragraph>
+                                <Paragraph>
+                                    <Bold>3.</Bold> V tabulce nově přibylo pole, které dosud nebylo definováno v souboru.
+                                </Paragraph>
+                            </FlowDocument>
+                        </RichTextBox>
+                    </StackPanel>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Generovat soubory"></TextBlock>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel Margin="20" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Label FontWeight="Bold" Content="Souhrn výsledků"/>
+                            <RichTextBox x:Name="richTextBox" MinWidth="500" Height="388">
+                                <FlowDocument>
+                                    <FlowDocument.Resources>
+                                        <Style TargetType="{x:Type Paragraph}">
+                                            <Setter Property="Margin" Value="0"/>
+                                        </Style>
+                                    </FlowDocument.Resources>
+                                </FlowDocument>
+                            </RichTextBox>
+                            <!--<fa:ImageAwesome Icon="Flag" VerticalAlignment="Center" HorizontalAlignment="Center" />-->
+                        </StackPanel>
+                        <StackPanel Grid.Row="1">
+                            <Button Width="100" Click="Button_Click">Generovat</Button>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </Grid>
+    </ScrollViewer>
+</dx:ThemedWindow>
